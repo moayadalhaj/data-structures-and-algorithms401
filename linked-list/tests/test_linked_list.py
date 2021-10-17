@@ -25,7 +25,7 @@ def test_empety_linked_list():
 
 def test_the_head_value():
     # Arrange any data that you need to run your test
-    expected=5
+    expected=7
     # Act on the subject of the test to produce some actual output
     ll = Linked_list()
     ll.insert(5)
@@ -36,7 +36,7 @@ def test_the_head_value():
 
 def test_insert_multiple_nodes():
     # Arrange any data that you need to run your test
-    expected='{ 5 } -> { 8 } -> None'
+    expected='{ 8 } -> { 5 } -> None'
     # Act on the subject of the test to produce some actual output
     ll = Linked_list()
     ll.insert(5)
@@ -80,7 +80,7 @@ def test_value_doesnt_include_in_linked_list():
 
 def test_str():
     # Arrange any data that you need to run your test
-    excpected='{ 5 } -> { s } -> { 17 } -> None'
+    excpected='{ 17 } -> { s } -> { 5 } -> None'
     # Act on the subject of the test to produce some actual output
     ll=Linked_list()
     ll.insert(5)
@@ -88,3 +88,32 @@ def test_str():
     ll.insert(17)
     # Assert
     assert str(ll) == excpected
+
+def test_append_1():
+    ll = Linked_list()
+    ll.append(1)
+    assert ll.head.value is 1
+    ll.append(2)
+    assert ll.head.next.value is 2
+    assert ll.head.next.next is None
+
+def test_insertAfter():
+    ll = Linked_list()
+    assert ll.insertAfter(5,1) == "No change, method exception"
+    ll.append(5)
+    ll.insertAfter(5,1)
+    assert ll.head.next.value == 1
+    assert ll.head.next.next == None
+    ll.insertBefore(1,4)
+    assert ll.head.next.value == 4
+    assert ll.head.next.next.value == 1
+
+def test_insertBefore():
+    ll = Linked_list()
+    assert ll.insertBefore(5,1) == "No change, method exception"
+    ll.append(5)
+    ll.insertBefore(5,1)
+    assert ll.head.value == 1
+    ll.insertBefore(5,2)
+    assert ll.head.next.value == 2
+    assert ll.head.next.next.value == 5
