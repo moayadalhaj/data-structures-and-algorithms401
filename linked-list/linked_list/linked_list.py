@@ -113,6 +113,20 @@ class Linked_list:
                 current = current.next
         except:
             return "No change, method exception"
+
+    def kthFromEnd (self,value):
+        try:
+            current = self.head
+            allValues = []
+            while(current.next != None):
+                allValues.append(current.value)
+                current = current.next
+            else:
+                allValues.append(current.value)
+            allValues.reverse()
+            return allValues[value]
+        except:
+            return 'This linked list is not long enough'
     
 if __name__ == "__main__":
     ll = Linked_list()

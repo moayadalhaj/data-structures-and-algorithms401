@@ -117,3 +117,17 @@ def test_insertBefore():
     ll.insertBefore(5,2)
     assert ll.head.next.value == 2
     assert ll.head.next.next.value == 5
+
+def test_kthFromEnd():
+    ll = Linked_list()
+    assert ll.kthFromEnd(1) == 'This linked list is not long enough'
+    ll.append(5)
+    assert ll.kthFromEnd(1) == 'This linked list is not long enough'
+    ll.kthFromEnd(0) == 5
+    ll.append(17)
+    ll.insert('foo')
+    ll.append(61)
+    assert ll.kthFromEnd(2) == 5
+    assert ll.kthFromEnd(3) == 'foo'
+    assert ll.kthFromEnd(6) == 'This linked list is not long enough'
+    assert ll.kthFromEnd(-1) == 'foo'
