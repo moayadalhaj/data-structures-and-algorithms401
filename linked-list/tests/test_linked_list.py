@@ -1,6 +1,6 @@
 from linked_list import __version__
 import linked_list
-from linked_list.linked_list import Linked_list, Node
+from linked_list.linked_list import Linked_list, Node, zipLists
 
 def test_version():
     assert __version__ == '0.1.0'
@@ -131,3 +131,61 @@ def test_kthFromEnd():
     assert ll.kthFromEnd(3) == 'foo'
     assert ll.kthFromEnd(6) == 'This linked list is not long enough'
     assert ll.kthFromEnd(-1) == 'foo'
+
+def test_two_empty_ll():
+    ll1 = Linked_list()
+    ll2 = Linked_list()
+    h=zipLists(ll1,ll2)
+    assert h.head == None
+
+def test_one_empty_ll2():
+    ll1 = Linked_list()
+    ll2 = Linked_list()
+    ll1.append(1)
+    ll1.append(3)
+    ll1.append(6)
+    ll2 = Linked_list()
+    assert str(zipLists(ll1,ll2)) == '{ 1 } -> { 3 } -> { 6 } -> None'
+
+
+def test_one_empty_ll1():
+    ll1 = Linked_list()
+    ll2 = Linked_list()
+    ll2.append(1)
+    ll2.append(5)
+    ll2.append(9)
+
+    assert str(zipLists(ll1,ll2)) == '{ 1 } -> { 5 } -> { 9 } -> None'
+
+def test_two_equal_length_ll():
+    ll1 = Linked_list()
+    ll2 = Linked_list()
+    ll1.append(1)
+    ll1.append(3)
+    ll1.append(6)
+    ll2.append(1)
+    ll2.append(5)
+    ll2.append(9)
+
+    assert str(zipLists(ll1,ll2)) == '{ 1 } -> { 1 } -> { 3 } -> { 5 } -> { 6 } -> { 9 } -> None'
+
+def test_ll1_longer_than_ll2():
+    ll1 = Linked_list()
+    ll2 = Linked_list()
+    ll1.append(1)
+    ll1.append(3)
+    ll1.append(6)
+    ll2.append(5)
+    ll2.append(9)
+
+    assert str(zipLists(ll1,ll2)) == '{ 1 } -> { 5 } -> { 3 } -> { 9 } -> { 6 } -> None'
+
+def test_ll2_longer_than_ll1():
+    ll1 = Linked_list()
+    ll2 = Linked_list()
+    ll1.append(1)
+    ll1.append(3)
+    ll2.append(2)
+    ll2.append(5)
+    ll2.append(9)
+    assert str(zipLists(ll1,ll2)) == '{ 1 } -> { 2 } -> { 3 } -> { 5 } -> { 9 } -> None'

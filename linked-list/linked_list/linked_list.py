@@ -127,7 +127,59 @@ class Linked_list:
             return allValues[value]
         except:
             return 'This linked list is not long enough'
+
+def zipLists (ll1,ll2):
+    current1 = ll1.head
+    current2 = ll2.head
+    new = Linked_list()
+    current3 = new.head
+    status1 = True
+    status2 = True
+    if(not current1):
+        status1 = False
+    if(not current2):
+        status2 = False
+    if(status1 and status2):
+        new.head = current1
+        current3 = new.head
+        print(current3.value)
+        if (not current1.next):
+            status1 = False
+        else:
+            current1 = current1.next
+        while(status1 or status2):
+            if(status2):
+                print(current2.value)
+                if current2.next:
+                    b = current2.next
+                    current3.next = current2
+                    current3 = current3.next
+                    current2 = b
+                elif (current2.value and status2):
+                    current3.next = current2
+                    current3 = current3.next
+                    status2 = False
+            if(status1):
+                if current1.next:
+                    a = current1.next
+                    current3.next = current1
+                    current3 = current3.next
+                    current1 = a
+                elif (current1.value and status1):
+                    current3.next = current1
+                    current3 = current3.next
+                    status1 = False
+        return new
+
+    elif status1:
+        return ll1
+
+    elif status2:
+        return ll2
     
+    else:
+        return Linked_list()
+
 if __name__ == "__main__":
     ll = Linked_list()
 

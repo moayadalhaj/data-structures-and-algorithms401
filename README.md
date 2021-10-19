@@ -10,3 +10,4 @@ This is the Data structure and algorithms for python course:
 | Class 05 |[Linked-List](linked-list/README.md) |
 | Class 06 |[Linked-List-insertions](linked-list/README.md) |
 | Class 07 |[Linked-List-kth](linked-list/README.md) |
+| Class 08 |[Linked-List-zip](linked-list/README.md) |
