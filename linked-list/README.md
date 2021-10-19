@@ -13,6 +13,7 @@ Within the LinkedList class, include method to axcess the property of head value
 ## Whiteboard Process
 
 ![linked-list-kth](linked-list-kth.png)
+![linked-list-zip](linked-list-zip.png)
 
 ## Approach & Efficiency
 
@@ -54,6 +55,11 @@ First create a class for creating a node to store a value, and a pointer to the 
 
 - time : O(n)
 - space : O(n)
+
+`zipLists`: Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
+
+- time : O(n)
+- space : O(1)
 
 ## Solution
 
