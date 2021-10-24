@@ -33,20 +33,44 @@ There are several methods that are appended to Stack and Queue classes, that are
 
 for the **Stack** class:
 
-1. push: takes any value as an argument and adds a new node with that value to the top of the stack
+`push`: takes any value as an argument and adds a new node with that value to the top of the stack
 
-2. pop: does not take any argument, removes the node from the top of the stack, and returns the node’s value.
+- time : O(1) it takes the same amount of time no matter how many Nodes
+- space : O(1)
 
-3. peek : does not take an argument and returns the value of the node located on top of the stack, without removing it from the stack.
+`pop`: does not take any argument, removes the node from the top of the stack, and returns the node’s value.
 
-4. isEmpty : takes no argument, and returns a boolean indicating whether or not the stack is empty.
+- time : O(1) it takes the same amount of time no matter how many Nodes
+- space : O(1)
+
+`peek`: does not take an argument and returns the value of the node located on top of the stack, without removing it from the stack.
+
+- time : O(1)
+- space : O(1)
+
+`isEmpty` : takes no argument, and returns a boolean indicating whether or not the stack is empty.
+
+- time : O(1)
+- space : O(1)
 
 ***for the **Queue** class:***
 
-1. enqueue : takes any value as an argument and adds a new node with that value to the back of the queue
+`enqueue`: takes any value as an argument and adds a new node with that value to the back of the queue
 
-2. dequeue : does not take any argument, removes the node from the front of the queue, and returns the node’s value.
+- time : O(1) it takes the same amount of time no matter how many Nodes
+- space : O(1)
 
-3. peek : does not take an argument and returns the value of the node located in the front of the queue, without removing it from the queue.
+`dequeue`: does not take any argument, removes the node from the front of the queue, and returns the node’s value.
 
-4. isEmpty : takes no argument, and returns a boolean indicating whether or not the queue is empty.
+- time : O(1) it takes the same amount of time no matter how many Nodes
+- space : O(1)
+
+`peek` : does not take an argument and returns the value of the node located in the front of the queue, without removing it from the queue.
+
+- time : O(1)
+- space : O(1)
+
+`isEmpty` : takes no argument, and returns a boolean indicating whether or not the queue is empty.
+
+- time : O(1)
+- space : O(1)
