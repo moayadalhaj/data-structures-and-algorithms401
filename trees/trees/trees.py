@@ -29,7 +29,8 @@ class BinaryTree:
     """
     def __init__(self):
         self.root = None
-    
+        self.maximum = 0
+
     def pre_order(self):
         """
         A binary tree method which returns a list of items that it contains
@@ -54,7 +55,7 @@ class BinaryTree:
             walk(self.root)
             return list_of_items 
         except:
-            return "Pre_order method faild"
+            return "Pre_order method failed"
     
     def in_order(self):
         """
@@ -82,7 +83,7 @@ class BinaryTree:
             walk(self.root)
             return list_of_items 
         except:
-            return "in_order method faild"
+            return "in_order method failed"
 
     def post_order(self):
         """
@@ -111,7 +112,7 @@ class BinaryTree:
             walk(self.root)
             return list_of_items 
         except:
-            return "post_order method faild"
+            return "post_order method failed"
     
     def bfs(self):
         """
@@ -139,6 +140,29 @@ class BinaryTree:
                 breadth.enqueue(front.right)
 
         return list_of_items
+    
+    def tree_max(self):
+        """
+        A method to find the maximum value in the tree
+        
+        arguments: None
+        output: number maximum value in the tree
+        """
+        try:
+            if not self.root:
+                return 'Tree is empty'
+            def walk(node):
+                if node.value > self.maximum:
+                    self.maximum = node.value
+                if node.left:
+                    walk(node.left)
+                if node.right:
+                    walk(node.right)
+            walk(self.root)
+            return self.maximum 
+        except:
+            return "tree max method failed"
+
 
 class BinarySearchTree(BinaryTree):
     """
@@ -205,19 +229,26 @@ class BinarySearchTree(BinaryTree):
         return bool
 
 if __name__=='__main__':
-    a_node = Node('A')
-    b_node = Node('B')
-    c_node = Node('C')
-    d_node = Node('D')
-    e_node = Node('E')
-    f_node = Node('F')
+    a_node = Node(2)
+    b_node = Node(7)
+    c_node = Node(5)
+    d_node = Node(2)
+    e_node = Node(6)
+    f_node = Node(9)
+    f_node_left = Node(4)
+    e_left_node = Node(5)
+    e_right_node = Node(11)
     a_node.left = b_node
     a_node.right = c_node
     b_node.left= d_node
     b_node.right = e_node
-    c_node.left = f_node
+    c_node.right = f_node
+    e_node.left = e_left_node
+    e_node.right = e_right_node
+    f_node.left = f_node_left
     tree=BinaryTree()
     tree.root = a_node
     print(tree.pre_order())
     print(tree.in_order())
-    print(tree.post_order(  ))
+    print(tree.post_order())
+    print(tree.tree_max())
