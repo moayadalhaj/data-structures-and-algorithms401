@@ -15,4 +15,4 @@ This is the Data structure and algorithms for python course:
 | Class 11 |[stack-queue-pseudo](stack-queue-pseudo/README.md) |
 | Class 12 |[stack-queue-animal-shelter](stack-queue-animal-shelter/README.md) |
 | Class 13 |[stack-queue-brackets](stack-queue-brackets/README.md) |
-
+| Class 15 |[trees](trees/README.md) |
