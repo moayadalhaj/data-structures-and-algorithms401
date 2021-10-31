@@ -1,40 +1,50 @@
-# Trees
-
-Trees are non-linear data structures that represent nodes connected by edges. Each tree consists of a root node as the Parent node, and the left node and right node as Child nodes.
-![d](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-15/resources/images/BinaryTree1.PNG)
-
-## Binary tree
-
-A tree whose elements have at most two children is called a binary tree. Each element in a binary tree can have only two children. A node’s left child must have a value less than its parent’s value, and the node’s right child must have a value greater than its parent value.
-
-![d](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-15/resources/images/BST2.PNG)
+# Maximum value in tree
 
 ## Code link
 
-[Trees code](trees/trees.py)
+[Code](trees/trees.py)
 
-## Challenge
+## Challenge Summary
 
-- Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
+Find the Maximum Value in a Binary Tree, create a method that takes no inputs, and returns the maximum value inside the Binary Tree
 
-- Create a Binary Tree class that has three methods, pre order, in order, and post order
+## Whiteboard Process
 
-- Create a Binary Search Tree class that has two methods, add and Contains
+![tree-max](tree-max.png)
 
 ## Approach & Efficiency
 
-for today's approach, i used only one method to complete today's code challenge, which is using recursion inside the methods in order to loop over the entire tree, it's impossible to use a while or for loop in a multi-directional problem, that's why i used regression.
+The approach used in this challenge is looping over all the elements inside the binary tree, because it's not sorted as the binary search tree, saving the maximum value then return it. all the edge cases are covered properly, that will be discussed inside the Solution
 
-we have three classes, Tree, Node and Binary_Search_Tree.
+- `tree_max`: to find the maximum value in the tree
+  - Big O:
+    - time O(n): the solution used recursion to loop over all values in tree
+    - spac O(1): just store the data in a variable
 
-## API
+## Solution
 
-for today, we have 3 classes with multiple functionalities:
+for the solution, this code loops over all the nodes using the regression logic, checks every value inside the Tree if it's bigger or smaller than the temporary one, then return the largest one, in case of an empty tree, the return is None, the following is the code
 
-Node class: Node class is responsible for creating new nodes that has a value, a right and a lift defined as None
-
-the BinaryTree class has three methods, pre_order, in_order and post_order:
-
-- `pre_order`: means that the root has to be looked at first. In our case, looking at the root just means that we output its value. When we call preOrder for the first time, the root will be added to the call stack
-- `in_order`: means that the left has to be looked at first. In our case, we start from the farthest node to the left, and work our way to the root, to reach the right nodes
-- `post_order`: means that the left has to be looked at first. In our case, we start from the farthest node to the left, and work our way to the right, finally, we reach the root
+```python
+   def tree_max(self):
+        """
+        A method to find the maximum value in the tree
+        
+        arguments: None
+        output: number maximum value in the tree
+        """
+        try:
+            if not self.root:
+                return 'Tree is empty'
+            def walk(node):
+                if node.value > self.maximum:
+                    self.maximum = node.value
+                if node.left:
+                    walk(node.left)
+                if node.right:
+                    walk(node.right)
+            walk(self.root)
+            return self.maximum 
+        except:
+            return "tree max method failed"
+```

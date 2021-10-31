@@ -89,6 +89,17 @@ def test_Binary_Search_Tree_post_order(binery):
     # assert actual is same as expected
     assert actual == expected
 
+def test_tree_max_with_empty_tree():
+    expected = 'Tree is empty'
+    tree = BinaryTree()
+    actual = tree.tree_max()
+    assert actual == expected 
+
+def test_tree_max(max_values):
+    expected = 11
+    actual = max_values.tree_max()
+    assert actual == expected 
+
 @pytest.fixture
 def tree_values():
     a_node = Node('A')
@@ -130,3 +141,26 @@ def binery():
     newTree.add(27)
     newTree.add(85)
     return newTree
+
+@pytest.fixture
+def max_values():
+    a_node = Node(2)
+    b_node = Node(7)
+    c_node = Node(5)
+    d_node = Node(2)
+    e_node = Node(6)
+    f_node = Node(9)
+    f_node_left = Node(4)
+    e_left_node = Node(5)
+    e_right_node = Node(11)
+    a_node.left = b_node
+    a_node.right = c_node
+    b_node.left= d_node
+    b_node.right = e_node
+    c_node.right = f_node
+    e_node.left = e_left_node
+    e_node.right = e_right_node
+    f_node.left = f_node_left
+    tree=BinaryTree()
+    tree.root = a_node
+    return tree
