@@ -17,3 +17,4 @@ This is the Data structure and algorithms for python course:
 | Class 13 |[stack-queue-brackets](challenges/stack-queue-brackets/README.md) |
 | Class 15 |[trees](Data_structure/trees/README.md) |
 | Class 16 |[trees-max](challenges/tree-max/README.md) |
+| Class 17 |[tree-breadth-first](challenges/tree-breadth-first/README.md) |
