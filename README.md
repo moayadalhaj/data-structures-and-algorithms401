@@ -18,3 +18,4 @@ This is the Data structure and algorithms for python course:
 | Class 15 |[trees](Data_structure/trees/README.md) |
 | Class 16 |[trees-max](challenges/tree-max/README.md) |
 | Class 17 |[tree-breadth-first](challenges/tree-breadth-first/README.md) |
+| Class 18 |[tree-fizz-buzz](challenges/tree-fizz-buzz/README.md) |
